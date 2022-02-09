@@ -1,0 +1,32 @@
+File lock facility ?
+	https://www.spigotmc.org/threads/safe-async-i-o.459407/
+	
+Java xml using stax best performance:
+	https://www.tutorialspoint.com/java_xml/java_stax_modify_document.htm
+	
+Internalization:
+	Properties with parameter example:
+		Properties p = new Properties();
+		p.setProperty("messages.myMessage", "This message is for {0} in {1}");
+		String s = MessageFormat.format(p.getProperty("messages.myMessage"), "foo", "bar");
+
+Test with plugin reload
+	DOC PLUGIN: https://www.spigotmc.org/resources/plugin-manager-reloaded.7144/
+	In the console server execute this after copy the plugin jar in order to reload plugin without restarting the entire server
+	WATCH OUT: this does not work currenly
+		plm reload BanWhenDie
+		
+
+To increase despawing time in paper and spitgot in order to add the same time than bantime
+	In spigot.yml, check what your item-despawn-rate is. The default is 6000 (ticks), equal to 5 minutes.
+
+	Paper (paper.yml) also adds alt-item-despawn-rate which allows some items (eg cobblestone, stone, netherrack) to despaw faster. Set enabled=false for that, if it's true.
+	
+	Plugin which disables despawing:
+		https://dev.bukkit.org/projects/disable-item-despawn/files/748581
+	Main code to perform this:
+		In a listener:
+			@EventHandler
+		    public void onItemDespawn(final ItemDespawnEvent e) {
+		        e.setCancelled(true);
+		    }

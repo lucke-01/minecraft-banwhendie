@@ -1,0 +1,5 @@
+name: BanWhenDie
+main: com.lucke01.banwhendie.BanWhenDiePlugin
+version: 0.0.1-SNAPSHOT
+api-version: 1.18
+commands: 

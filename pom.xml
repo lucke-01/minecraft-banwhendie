@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lucke01</groupId>
+    <artifactId>banwhendie</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>banwhendie</name>
+    <description>A spitgot minecraft plugin to get banned when you died for a certainly span of time</description>
+
+    <properties>
+    	<java.version>8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <spitgot-api.version>1.18.1-R0.1-SNAPSHOT</spitgot-api.version>
+        <junit.version>5.8.2</junit.version>
+    </properties>
+
+	<repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+	<dependencies>
+	    <dependency>
+	      <groupId>org.spigotmc</groupId>
+	      <artifactId>spigot-api</artifactId>
+	      <version>${spitgot-api.version}</version>
+	      <scope>provided</scope>
+	    </dependency>
+	    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <version>${junit.version}</version>
+		    <scope>test</scope>
+		</dependency>
+  	</dependencies>
+
+    <build>
+    	<resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-antrun-plugin</artifactId>
+	            <version>3.0.0</version>
+	            <executions>
+	                <execution>
+	                    <phase>install</phase>
+	                    <configuration>
+	                    	<!-- uncomment this in case you want copy the resulting jar to one server plugin directory -->
+	                        <target>
+	                            <copy file="./target/${project.artifactId}-${project.version}.jar" 
+	                            		tofile="./LOCAL_server_spigot_1_18_1/plugins/${project.artifactId}-${project.version}.jar"/>
+	                        </target>
+	                    </configuration>
+	                    <goals>
+	                        <goal>run</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+        	</plugin>
+            
+        </plugins>
+    </build>
+</project>

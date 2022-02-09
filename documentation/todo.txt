@@ -1,0 +1,4 @@
+TODO:
+	- Implement some h2 database implementation
+	- activateWhiteList and whiteList (with name of player that won't be affect by this plugin')
+	- Perform an well built test cases which works nice with minecraft API

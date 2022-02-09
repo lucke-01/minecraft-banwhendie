@@ -1,0 +1,15 @@
+players:
+    -
+        nickname: test
+        ip: 127.0.0.1
+        #(60S,1M,1H,3D)
+        banTime: 1M
+        #yyyy-MM-ddTHH:mm:ss
+        fallenDate:  2021-12-26 10:20:30
+    -
+        nickname: test2
+        ip: 127.0.0.2
+        #(60S,1M,1H,3D)
+        banTime: 2M
+        #yyyy-MM-ddTHH:mm:ss
+        fallenDate:  2021-12-26 10:20:30
